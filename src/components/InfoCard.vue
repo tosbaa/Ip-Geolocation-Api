@@ -24,15 +24,17 @@
   margin: auto;
   width: 60%;
   background-color: white;
-  border-radius: 3rem;
+  border-radius: 1rem;
   display: flex;
   justify-content: center;
 }
 
 .info-card__element {
+  flex-basis: 0;
+  flex-grow: 1;
   letter-spacing: 0.1ch;
   color: black;
-  padding: 1rem 2rem;
+  padding: 0rem 2rem;
 }
 
 .info-card__element:not(:first-child) {
@@ -41,9 +43,10 @@
 
 h6 {
   color: gray;
+  margin: 2rem 0rem;
 }
 
 p {
-  font-weight: 700;
+  font-weight: 500;
 }
 </style>
