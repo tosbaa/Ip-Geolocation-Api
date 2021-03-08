@@ -43,7 +43,6 @@
 
 h6 {
   color: gray;
-  margin: 2rem 0rem;
 }
 
 p {

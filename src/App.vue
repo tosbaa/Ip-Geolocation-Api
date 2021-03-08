@@ -1,5 +1,6 @@
 <template>
   <app-header></app-header>
+  <map-component></map-component>
 </template>
 
 <script>
