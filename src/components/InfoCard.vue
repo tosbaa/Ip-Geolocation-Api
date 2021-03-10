@@ -22,7 +22,7 @@
 <style scoped>
 .info-card {
   position: relative;
-  top: 80px;
+  top: 6vw;
   width: clamp(20em, 70%, 50em);
   margin: auto;
   background-color: white;
@@ -50,5 +50,23 @@ h6 {
 
 p {
   font-weight: 500;
+}
+
+@media screen and (max-width: 600px) {
+  .info-card {
+    /*   top: 20px; */
+    text-align: center;
+    flex-flow: column;
+  }
+
+  .info-card__element :is(h6, p) {
+    margin: 1rem;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .info-card__element:not(:first-child) {
+    border-left: none;
+  }
 }
 </style>
