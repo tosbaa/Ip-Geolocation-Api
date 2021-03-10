@@ -29,9 +29,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-#map-container {
-  min-height: 70vh;
-}
-</style>

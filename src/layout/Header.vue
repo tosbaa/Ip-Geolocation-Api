@@ -20,7 +20,6 @@ export default {
 
 <style scoped>
 header {
-  min-height: 30vh;
   color: white;
   background-image: url("../../public/pattern-bg.png");
   background-repeat: no-repeat;

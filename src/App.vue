@@ -39,5 +39,7 @@ body {
 
 #app {
   min-height: 100vh;
+  display: grid;
+  grid-template-rows: 40vh 60vh;
 }
 </style>
