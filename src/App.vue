@@ -10,7 +10,10 @@ export default {
     return {
       ipData: {
         address: null,
-        location: null,
+        region: null,
+        city: null,
+        coords: null,
+        postalCode: null,
         timezone: null,
         isp: null
       }
@@ -34,7 +37,29 @@ export default {
       }
     },
 
-    async getIpDetails() {}
+    async getIpDetails(ip) {
+      try {
+        const response = await fetch(
+          `https://cors-anywhere.herokuapp.com/${process.env.VUE_APP_GEO_URL}?apiKey=${process.env.VUE_APP_API_KEY}&ipAddress=${ip}`
+        );
+        if (!response.ok) {
+          throw new Error("Network error occured during fetch");
+        } else {
+          const data = await response.json();
+          return {
+            address: data.ip,
+            region: data.location.region,
+            city: data.location.city,
+            coords: [data.location.lat, data.location.lng],
+            postalCode: data.location.postalCode,
+            timezone: data.location.timezone,
+            isp: data.isp
+          };
+        }
+      } catch (error) {
+        console.log(error.message);
+      }
+    }
   }
 };
 </script>
