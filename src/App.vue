@@ -1,26 +1,43 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js App" />
+  <app-header></app-header>
+  <map-component></map-component>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-
 export default {
-  name: "App",
-  components: {
-    HelloWorld
-  }
+  name: "App"
 };
 </script>
 
 <style>
+@import url("../public/styles/normalize.css");
+
+@font-face {
+  font-family: "Rubik";
+  src: url("../public/fonts/Rubik/Rubik-VariableFont_wght.ttf")
+      format("truetype"),
+    url("../public/fonts/Rubik/Rubik-Italic-VariableFont_wght.ttf")
+      format("truetype");
+  font-weight: 400 700;
+  unicode-range: U+0000- U+007F;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+  font-family: "Rubik";
+}
+
+body {
+  font-size: 1.8rem;
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  min-height: 100vh;
 }
 </style>
