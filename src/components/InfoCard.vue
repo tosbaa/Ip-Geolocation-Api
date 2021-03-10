@@ -21,6 +21,9 @@
 
 <style scoped>
 .info-card {
+  position: relative;
+  top: 80px;
+  width: clamp(20em, 70%, 50em);
   margin: auto;
   background-color: white;
   border-radius: 1rem;
@@ -30,12 +33,11 @@
 }
 
 .info-card__element {
-  margin: 1rem;
   flex-basis: 0;
   flex-grow: 1;
   letter-spacing: 0.1ch;
   color: black;
-  padding: 0rem 2rem;
+  padding: 0rem 3rem;
 }
 
 .info-card__element:not(:first-child) {

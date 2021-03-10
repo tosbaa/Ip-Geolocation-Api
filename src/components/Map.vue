@@ -29,3 +29,11 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+#map-container {
+  height: 60vh;
+  position: relative;
+  z-index: 0;
+}
+</style>

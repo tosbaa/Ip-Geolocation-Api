@@ -20,17 +20,19 @@ export default {
 
 <style scoped>
 header {
+  position: relative;
+  height: 40vh;
+  z-index: 1;
   color: white;
   background-image: url("../../public/pattern-bg.png");
   background-repeat: no-repeat;
   background-size: cover;
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
 }
 
 h1 {
   text-align: center;
+  margin-top: 0;
+  padding-top: 2rem;
 }
 
 .search-box {
@@ -38,7 +40,7 @@ h1 {
   border-radius: 2rem;
   overflow: hidden;
   display: flex;
-  width: 40%;
+  width: clamp(20em, 40%, 60em);
   min-height: 5rem;
 }
 
