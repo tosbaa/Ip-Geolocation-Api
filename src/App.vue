@@ -5,7 +5,37 @@
 
 <script>
 export default {
-  name: "App"
+  name: "App",
+  data() {
+    return {
+      ipData: {
+        address: null,
+        location: null,
+        timezone: null,
+        isp: null
+      }
+    };
+  },
+
+  methods: {
+    async getIpOfClient() {
+      try {
+        const response = await fetch(
+          `https://cors-anywhere.herokuapp.com/${process.env.VUE_APP_IP_URL}`
+        );
+        if (!response.ok) {
+          throw new Error("Couldn't fetch the ip");
+        } else {
+          const data = await response.json();
+          return data.ip;
+        }
+      } catch (error) {
+        console.log(error.message);
+      }
+    },
+
+    async getIpDetails() {}
+  }
 };
 </script>
 
