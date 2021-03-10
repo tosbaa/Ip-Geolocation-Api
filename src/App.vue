@@ -60,6 +60,9 @@ export default {
         console.log(error.message);
       }
     }
+  },
+  async mounted() {
+    this.ipData = await this.getIpDetails(await this.getIpOfClient());
   }
 };
 </script>
