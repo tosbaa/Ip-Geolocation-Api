@@ -25,7 +25,7 @@ header {
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: column;
   justify-content: center;
 }
 
