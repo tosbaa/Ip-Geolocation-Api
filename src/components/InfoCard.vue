@@ -22,14 +22,15 @@
 <style scoped>
 .info-card {
   margin: auto;
-  width: 60%;
   background-color: white;
   border-radius: 1rem;
   display: flex;
+  flex-flow: row wrap;
   justify-content: center;
 }
 
 .info-card__element {
+  margin: 1rem;
   flex-basis: 0;
   flex-grow: 1;
   letter-spacing: 0.1ch;
