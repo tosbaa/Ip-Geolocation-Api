@@ -2,22 +2,33 @@
   <div class="info-card">
     <div class="info-card__element">
       <h6>IP ADDRESS</h6>
-      <p>192.212.174.101</p>
+      <p>{{ ipData.address }}</p>
     </div>
     <div class="info-card__element">
       <h6>LOCATION</h6>
-      <p>Brooklyn,NY 1001</p>
+      <p>{{ ipData.city + "," + ipData.region + " " + ipData.postalCode }}</p>
     </div>
     <div class="info-card__element">
       <h6>TIMEZONE</h6>
-      <p>UTC-05:00</p>
+      <p>{{ "UTC" + ipData.timezone }}</p>
     </div>
     <div class="info-card__element">
       <h6>ISP</h6>
-      <p>SpaceX Starlink</p>
+      <p>{{ ipData.isp }}</p>
     </div>
   </div>
 </template>
+
+<script>
+import { mapGetters } from "vuex";
+export default {
+  computed: {
+    ...mapGetters({
+      ipData: "getIpDetails"
+    })
+  }
+};
+</script>
 
 <style scoped>
 .info-card {
