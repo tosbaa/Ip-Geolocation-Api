@@ -4,8 +4,15 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
-  name: "App"
+  name: "App",
+  methods: {
+    ...mapActions(["getIpOfClient"])
+  },
+  mounted() {
+    this.getIpOfClient();
+  }
 };
 </script>
 
