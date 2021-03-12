@@ -2,7 +2,7 @@ export default {
   async getIpDetails(context, payload) {
     try {
       const response = await fetch(
-        `https://cors-anywhere.herokuapp.com/${process.env.VUE_APP_GEO_URL}?apiKey=${process.env.VUE_APP_API_KEY}&payload.ipAddress=${payload.ip}`
+        `https://cors-anywhere.herokuapp.com/${process.env.VUE_APP_GEO_URL}?apiKey=${process.env.VUE_APP_API_KEY}&ipAddress=${payload.ip}`
       );
       if (!response.ok) {
         throw new Error("Network error occured during fetch");
@@ -32,7 +32,7 @@ export default {
         throw new Error("Couldn't fetch the ip");
       } else {
         const data = await response.json();
-        context.dispatch("getIpDetails", data.ip);
+        context.dispatch("getIpDetails", { ip: data.ip });
       }
     } catch (error) {
       console.log(error.message);
