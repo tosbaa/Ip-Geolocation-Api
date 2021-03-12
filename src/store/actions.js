@@ -1,10 +1,16 @@
 export default {
   async getIpDetails(context, payload) {
-    const response = await fetch(
+    let response;
+    response = await fetch(
       `https://cors-anywhere.herokuapp.com/${process.env.VUE_APP_GEO_URL}?apiKey=${process.env.VUE_APP_API_KEY}&ipAddress=${payload.ip}`
     );
     if (response.status === 422) {
-      throw new Error("Couldn't find an ip or domain of  " + payload.ip);
+      response = await fetch(
+        `https://cors-anywhere.herokuapp.com/${process.env.VUE_APP_GEO_URL}?apiKey=${process.env.VUE_APP_API_KEY}&domain=${payload.ip}`
+      );
+      if (response.status === 422) {
+        throw new Error("Couldn't find an ip or domain of  " + payload.ip);
+      }
     }
     const data = await response.json();
     context.commit("setIpDetails", {
