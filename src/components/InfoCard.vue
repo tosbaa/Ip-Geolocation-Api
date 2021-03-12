@@ -33,7 +33,7 @@ export default {
 <style scoped>
 .info-card {
   position: relative;
-  top: 6vw;
+  top: 3vw;
   width: clamp(20em, 70%, 50em);
   margin: auto;
   background-color: white;
