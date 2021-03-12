@@ -5,6 +5,7 @@
 <script>
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
+import { mapGetters } from "vuex";
 export default {
   data() {
     return {
@@ -12,6 +13,19 @@ export default {
       myMap: null
     };
   },
+
+  computed: {
+    ...mapGetters({
+      coords: "getLocation"
+    })
+  },
+
+  watch: {
+    coords(val) {
+      this.myMap.setView(val, 13);
+    }
+  },
+
   mounted() {
     this.myMap = L.map("map-container").setView([51.505, -0.09], 13);
     L.tileLayer(

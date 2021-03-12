@@ -2,19 +2,25 @@
   <div class="info-card">
     <div class="info-card__element">
       <h6>IP ADDRESS</h6>
-      <p>{{ ipData.address }}</p>
+      <p v-if="loading">Loading...</p>
+      <p v-else>{{ ipData.address }}</p>
     </div>
     <div class="info-card__element">
       <h6>LOCATION</h6>
-      <p>{{ ipData.city + "," + ipData.region + " " + ipData.postalCode }}</p>
+      <p v-if="loading">Loading...</p>
+      <p v-else>
+        {{ ipData.city + "," + ipData.region + " " + ipData.postalCode }}
+      </p>
     </div>
     <div class="info-card__element">
       <h6>TIMEZONE</h6>
-      <p>{{ "UTC" + ipData.timezone }}</p>
+      <p v-if="loading">Loading...</p>
+      <p v-else>{{ "UTC" + ipData.timezone }}</p>
     </div>
     <div class="info-card__element">
       <h6>ISP</h6>
-      <p>{{ ipData.isp }}</p>
+      <p v-if="loading">Loading...</p>
+      <p v-else>{{ ipData.isp }}</p>
     </div>
   </div>
 </template>
@@ -23,6 +29,9 @@
 import { mapGetters } from "vuex";
 export default {
   computed: {
+    loading() {
+      return this.ipData.address === null;
+    },
     ...mapGetters({
       ipData: "getIpDetails"
     })
@@ -33,7 +42,7 @@ export default {
 <style scoped>
 .info-card {
   position: relative;
-  top: 6vw;
+  top: 3vw;
   width: clamp(20em, 70%, 50em);
   margin: auto;
   background-color: white;
