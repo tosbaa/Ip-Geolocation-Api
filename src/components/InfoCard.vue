@@ -70,6 +70,8 @@ h6 {
 
 p {
   font-weight: 500;
+  max-width: 20ch;
+  word-wrap: break-word;
 }
 
 @media screen and (max-width: 600px) {
@@ -80,7 +82,7 @@ p {
   }
 
   .info-card__element :is(h6, p) {
-    margin: 1rem;
+    margin: 1rem auto;
   }
 }
 
