@@ -23,6 +23,7 @@ export default {
   watch: {
     coords(val) {
       this.myMap.setView(val, 13);
+      L.marker(val).addTo(this.myMap);
     }
   },
 
